@@ -64,20 +64,46 @@ function App() {
     return data;
   };
 
-  const banBreed = () => {
-    setBreedBan((prevSet) => new Set([...prevSet, breedName]));
+  const addToBanList = (category, item) => {
+    if (category == "breed")
+      setBreedBan((prevSet) => new Set([...prevSet, item]));
+    else if (category == "country")
+      setCountryBan((prevSet) => new Set([...prevSet, item]));
+    else if (category == "weight")
+      setWeightBan((prevSet) => new Set([...prevSet, item]));
+    else if (category == "lifespan")
+      setLifeSpanBan((prevSet) => new Set([...prevSet, item]));
   }
 
-  const banCountry = () => {
-    setCountryBan((prevSet) => new Set([...prevSet, country]));
-  }
-
-  const banWeight = () => {
-    setWeightBan((prevSet) => new Set([...prevSet, weight]));
-  }
-
-  const banLifeSpan = () => {
-    setLifeSpanBan((prevSet) => new Set([...prevSet, lifeSpan]));
+  const deleteFromBanList = (category, item) => {
+    if (category == "breed") {
+      setBreedBan(prev => {
+        const newBreedBan = new Set(prev);
+        newBreedBan.delete(item);
+        return newBreedBan;
+      })
+    }
+    else if (category == "country") {
+      setCountryBan(prev => {
+        const newCountryBan = new Set(prev);
+        newCountryBan.delete(item);
+        return newCountryBan;
+      })
+    }
+    else if (category == "weight") {
+      setWeightBan(prev => {
+        const newWeightBan = new Set(prev);
+        newWeightBan.delete(item);
+        return newWeightBan;
+      })
+    }
+    else if (category == "lifespan") {
+      setLifeSpanBan(prev => {
+        const newLifeSpanBan = new Set(prev);
+        newLifeSpanBan.delete(item);
+        return newLifeSpanBan;
+      })
+    }
   }
 
   return (
@@ -92,10 +118,10 @@ function App() {
         </div>
         {madeFetch ? (
           <div className="ban-button-box">
-            <button className="ban-button" onClick={banBreed}>{breedName}</button>
-            <button className="ban-button" onClick={banCountry}>{country}</button>
-            <button className="ban-button" onClick={banWeight}>{weight} lbs</button>
-            <button className="ban-button"onClick={banLifeSpan}>{lifeSpan} years</button>
+            <button className="ban-button" onClick={() => addToBanList("breed", breedName)}>{breedName}</button>
+            <button className="ban-button" onClick={() => addToBanList("country", country)}>{country}</button>
+            <button className="ban-button" onClick={() => addToBanList("weight", weight)}>{weight} lbs</button>
+            <button className="ban-button"onClick={() => addToBanList("lifespan", lifeSpan)}>{lifeSpan} years</button>
           </div>
         ) : (
           <></>
@@ -115,6 +141,7 @@ function App() {
             countryBan={[...countryBan]}
             weightBan={[...weightBan]}
             lifeSpanBan={[...lifeSpanBan]}
+            deleteFromBanList={deleteFromBanList}
           />
       </div>
     </div>
