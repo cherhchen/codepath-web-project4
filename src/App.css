@@ -1,0 +1,107 @@
+#root {
+  /* max-width: 1280px; */
+  /* margin: 0 auto;
+  padding: 2rem; */
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+/* @media (max-width: 1000px) {
+  .box {
+    display: block;
+  }
+} */
+
+.cat-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 2em;
+}
+
+.ban-button-box {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-bottom: 2em;
+}
+
+.ban-button {
+  background-color: skyblue;
+  box-shadow: 0px 4px 0px deepskyblue;
+}
+
+.ban-badge {
+  background-color: skyblue;
+  box-shadow: 0px 4px 0px deepskyblue;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.discover-button {
+  background-color: lightgreen;
+  box-shadow: 0px 4px 0px limegreen;
+}
+
+.ban-list-box {
+  height: 100vh;
+  padding: 2em;
+  background-color: beige;
+  overflow-y: scroll;
+}
+
+.prev-cat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 2em;
+  background-color: beige;
+  overflow-y: scroll;
+}
+
+.prev-cat-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 1em;
+}
